@@ -19,4 +19,5 @@ public interface TestService {
 	List<Test> showalltest();
 	
 	void deletetest(int id);
+	public Test updateTest(Test test);
 }
