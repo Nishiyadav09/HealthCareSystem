@@ -64,6 +64,23 @@ public class TestServiceImpl implements TestService{
 	public void deletetest(int testId) {
 		testDao.deleteById(testId);
 	}
+	
+	/************************************************************************************************************************
+	 * Method        updateTest
+	 * Description   To implement the method to update the test 
+	 *                
+	 *                 
+	 *                   
+	 * Created By    Nishi Yadav
+	 * Created Date  07-MAY-2020                  
+	 ************************************************************************************************************************/
+	@Override
+	public Test updateTest(Test test) {
+		Test existingTest=testDao.findById(test.getTestId()).orElse(null);
+		 existingTest.setTestName(test.getTestName());
+	        return testDao.save(existingTest);
+	}
+
 
 
 }
