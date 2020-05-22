@@ -26,6 +26,7 @@ import com.cg.health.service.TestService;
  * Created Date    07-MAY-2020                  
  ************************************************************************************************************************/
 @RestController
+@CrossOrigin(origins="http://localhost:4200") 
 public class TestController {
 	@Autowired
 	private TestService testService;
@@ -38,6 +39,7 @@ public class TestController {
 	 * Created By    Nishi Yadav
 	 * Created Date  09-MAY-2020                  
 	 ************************************************************************************************************************/
+	@CrossOrigin(origins="http://localhost:4200") 
 	@GetMapping("/tests")
 	public ResponseEntity<List<Test>> getAllTest(){
 		return ResponseEntity.ok().body(testService.showalltest());
@@ -51,6 +53,7 @@ public class TestController {
 	 * Created By    Nishi Yadav
 	 * Created Date  09-MAY-2020                  
 	 ************************************************************************************************************************/
+	@CrossOrigin(origins="http://localhost:4200") 
 	@PostMapping("/addtest")
 	public ResponseEntity<String> addTest(@Valid @RequestBody Test tests, BindingResult bindingResult) throws TestsException
 			 {
@@ -86,7 +89,8 @@ public class TestController {
 	 * Created By    Nishi Yadav
 	 * Created Date  09-MAY-2020                  
 	 ************************************************************************************************************************/
-	  @DeleteMapping("/tests/{testId}")
+	@CrossOrigin(origins="http://localhost:4200")   
+	@DeleteMapping("/tests/{testId}")
 	  public ResponseEntity<String>deletetest(@PathVariable int testId) throws TestsException{
 		  try {
 			  testService.deletetest(testId);
@@ -98,7 +102,21 @@ public class TestController {
 	  }
 	  
 	 
-	
+	/************************************************************************************************************************
+	 * Method        updateTest
+	 * Description   To update the test from the database
+	 *                
+	 *                 
+	 *                   
+	 * Created By    Nishi Yadav
+	 * Created Date  09-MAY-2020                  
+	 ************************************************************************************************************************/
+	@CrossOrigin(origins="http://localhost:4200") 
+	@PutMapping("/update")
+    public ResponseEntity<String> updateTest(@RequestBody Test test) {
+		testService.updateTest(test);
+        return new ResponseEntity<String>("Updated",HttpStatus.OK); 
+   }
 	
 	
 }
