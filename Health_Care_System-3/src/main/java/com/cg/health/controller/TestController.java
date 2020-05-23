@@ -55,22 +55,12 @@ public class TestController {
 	 ************************************************************************************************************************/
 	@CrossOrigin(origins="http://localhost:4200") 
 	@PostMapping("/addtest")
-	public ResponseEntity<String> addTest(@Valid @RequestBody Test tests, BindingResult bindingResult) throws TestsException
-			 {
-		String err = "";
-		if (bindingResult.hasErrors()) {
-			List<FieldError> errors = bindingResult.getFieldErrors();
-			for (FieldError error : errors)
-				err += error.getDefaultMessage() + "<br/>";
-			throw new TestsException(err);
-		}
-		try {
-			testService.addTest(tests);
-			return new ResponseEntity<String>("Test added successfully", HttpStatus.OK);
-
-		} catch (Exception ex) {
-			throw new TestsException("Test ID already exists");
-		}
+	public ResponseEntity<String> addTest( @RequestBody Test test) {
+		
+		
+		testService.addTest(test);
+	    return new ResponseEntity<String>("Test Added",HttpStatus.OK);
+		
 	}
 	
 	
