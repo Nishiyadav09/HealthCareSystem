@@ -7,7 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
-
+/*****************************************************************************************************
+ * @author        Nishi Yadav
+ * Description    It is a Entity calss that 
+ *                specifies that the class  is mapped to a database
+ *                table with suitable columns.
+ * Version        1.0
+ * Created Date   06-MAY-2020 
+ *
+ ****************************************************************************************************/
 @Entity
 @Table(name = "Test_table")
 public class Test {
