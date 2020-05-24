@@ -1,4 +1,14 @@
 package com.cg.health.exception;
+/*****************************************************************************************************
+ * @author        Nishi Yadav
+ * Description    It is a TestException which handles the exception 
+ *                which occurs in test in the database. 
+ *               
+ *                
+ * Version        1.0
+ * Created Date   12-MAY-2020 
+ *
+ ****************************************************************************************************/
 public class TestsException extends Exception{
 
 	
